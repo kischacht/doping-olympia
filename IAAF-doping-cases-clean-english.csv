@@ -1,0 +1,77 @@
+YEAR,CITY,GENDER,NAME,COUNTRY,EVENT,PLACE,EVENT_LONG,COUNTRY_LONG
+1976,Montreal,Women,Danuta Rosani,POL,DT,dns/final,discus throw,Poland
+1984,Los Angeles,Men,Vésteinn Hafsteinnsson,ISL,DT,7qB,discus throw,Iceland
+1984,Los Angeles,Men,Gian Paolo Urlando,ITA,HT,4,hammer throw,Italy
+1984,Los Angeles,Men,Martti Vainio,FIN,5000m,dns/final,NA,Finland
+1984,Los Angeles,Men,Martti Vainio,FIN,"10,000m",silver,NA,Finland
+1984,Los Angeles,Women,Anna Verouli,GRE,JT,7qB,javelin throw,Greece
+1988,Seoul,Men,Ben Johnson,CAN,100m,gold,NA,Canada
+1992,Barcelona,Men,Jud Loqan,USA,HT,4,hammer throw,United States
+1992,Barcelona,Women,Madina Biktagirova,BLR/RUS EUN,Marathon,4,NA,NA
+1992,Barcelona,Women,Bonnie Dasse,USA,SP,8qB,shot put,United States
+1992,Barcelona,Women,Nijol Medvedeva,LTU,LJ,4,long jump,Lithuania
+1996,Atlanta,Men,Dean Capobianco,AUS,200m,7q2,NA,Australia
+1996,Atlanta,Men,Daniel Plaza,ESP,20Km Walk,11,NA,Spain
+1996,Atlanta,Women,Mary Slaney,USA,5000m,7h2,NA,United States
+1996,Atlanta,Women,Nataliya Shekhodanova,RUS,100mH,7,NA,Russia
+1996,Atlanta,Women,Sandra Farmer-Patrick,USA,400mH,5s2,NA,United States
+1996,Atlanta,Women,Antonella Bevilacqua,ITA,HJ,4,high jump,Italy
+1996,Atlanta,Women,Iva Prandzheva,BUL,LJ,7,long jump,Bulgaria
+1996,Atlanta,Women,Iva Prandzheva,BUL,TJ,4,triple jump,Bulgaria
+2000,Sydney,Men,Antonio Pettigrew,USA,400m,7,NA,United States
+2000,Sydney,Men,Antonio Pettigrew,USA,4x400mR,gold,NA,United States
+2000,Sydney,Men,Jerome Young,USA,4x400mR,gold,NA,United States
+2000,Sydney,Women,Marion Jones,USA,100m,gold,NA,United States
+2000,Sydney,Women,Marion Jones,USA,200m,gold,NA,United States
+2000,Sydney,Women,Marion Jones,USA,LJ,bronze,long jump,United States
+2000,Sydney,Women,Svetlana Pospelova,RUS,400m,4h8,NA,Russia
+2004,Athens,Men,Adrián Annus,HUN,HT,gold,hammer throw,Hungary
+2004,Athens,Men,Yuriy Bilonog,UKR,SP,gold,shot put,Ukraine
+2004,Athens,Men,Robert Fazekas,HUN,DT,gold,discus throw,Hungary
+2004,Athens,Men,Anton Galkin,RUS,400m,4s2,NA,Russia
+2004,Athens,Men,Aleksey Lesnichiy,BLR,HJ,nh/q,high jump,Belarus
+2004,Athens,Men,Duane Ross,USA,110mH,5s1,NA,United States
+2004,Athens,Men,Ivan Tikhon,BLR,HT,silver,hammer throw,Belarus
+2004,Athens,Women,Zhanna Block,UKR,100m,6s2,NA,Ukraine
+2004,Athens,Women,Zhanna Block,UKR,4x100mR,7h1,NA,Ukraine
+2004,Athens,Women,Crystal Cox,USA,4x400mR,gold,NA,United States
+2004,Athens,Women,Marion Jones,USA,LJ,5,long jump,United States
+2004,Athens,Women,Irina Korzhanenko,RUS,SP,gold,shot put,Russia
+2004,Athens,Women,Svetlana Krivelyova,RUS,SP,"4th, then bronze",shot put,Russia
+2004,Athens,Women,Olga Shchukina,UZB,SP,19qB,shot put,Uzbekistan
+2004,Athens,Women,Irina Yatchenko,UKR,DT,bronze,discus throw,Ukraine
+2008,Beijing,Men,Rashid Ramzi,BRN,1500m,gold,NA,Bahrain
+2008,Beijing,Men,Andrei Mikhnevich,BLR,SP,bronze,shot put,Belarus
+2008,Beijing,Women,Lyudmila Blonska,UKR,Heptathlon,silver,NA,Ukraine
+2008,Beijing,Women,Blonska,UKR,LJ,3qA,long jump,Ukraine
+2008,Beijing,Women,Alissa Kallinikou,CYP,400m,5h7,NA,Cyprus
+2008,Beijing,Women,Tezdzhan Naimova,BUL,100m,5h9,NA,Bulgaria
+2008,Beijing,Women,Vanja Periši,CRO,800m,6h3,NA,Croatia
+2008,Beijing,Women,Athanasía Tsoumeléka,GRE,20Km Walk,9th,NA,Greece
+2012,London,Men,Hussain Jamaan Al-Hamdah,KSA,5000m,19h1,NA,Kingdom of Saudi Arabia
+2012,London,Men,Hamza Driouch,QAT,1500m,"11, then 10s1",NA,Qatar
+2012,London,Men,Tyson Gay,USA,100m,4,NA,United States
+2012,London,Men,Tyson Gay,USA,4x100mR,silver,NA,United States
+2012,London,Men,Hassan Hirt,FRA,5000m,11h1,NA,France
+2012,London,Men,Mohamed Othman Shahween,KSA,1500m,7s1,NA,Kingdom of Saudi Arabia
+2012,London,Men,Andrei Mikhnevich,BLR,SP,8qB,shot put,Belarus
+2012,London,Men,Igor Yerokhin,RUS,50KmW,5,NA,Russia
+2012,London,Women,Yelena Arzhakova,RUS,800m,6,NA,Russia
+2012,London,Women,Yelena Arzhakova,RUS,"10,000m",19th,NA,Russia
+2012,London,Women,Semoy Hackett,TTO,100m,5s1,NA,NA
+2012,London,Women,Semoy Hackett,TTO,200m,8,NA,NA
+2012,London,Women,Semoy Hackett,TTO,4x100m,dnf/final,NA,NA
+2012,London,Women,Natallia Kareiva,BLR,1500m,7,NA,Belarus
+2012,London,Women,Yekaterina Kostetskaya,RUS,1500m,9,NA,Russia
+2012,London,Women,Zalina Marghieva,MDA,HT,8,hammer throw,Moldova
+2012,London,Women,Karin Melis Mey,TUR,LJ,dns/final,long jump,Turkey
+2012,London,Women,Ghofrane Mohammad,SYR,400mH,8h2,NA,Syria
+2012,London,Women,Nadezhda Ostapchuk,BLR,SP,gold,shot put,Belarus
+2012,London,Women,Darya Pishchalnikova,RUS,DT,silver,discus throw,Russia
+2012,London,Women,Pinar Saka,TUR,4x400m,8h2,NA,Turkey
+2012,London,Women,Anzhela Shevchenko,UKR,1500m,13h1,NA,Ukraine
+2012,London,Women,Svitlana Shmidt,UKR,3000mSC,12h3,NA,Ukraine
+2012,London,Women,Binnaz Uslu,TUR,3000SC,15h1,NA,Turkey
+2012,London,Women,Wang Jiali,CHN,Marathon,58,NA,China
+2012,London,Women,Nevin Yanit,TUR,100mH,5th,NA,Turkey
+2012,London,Women,Lyudmyla Yosypenko,UKR,Heptathlon,4,NA,Ukraine

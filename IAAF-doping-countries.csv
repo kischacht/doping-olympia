@@ -1,0 +1,288 @@
+code,COUNTRY_LONG
+GEQ,Equatorial Guinea
+GER,Germany
+GHA,Ghana
+GIB,Gibraltar
+GRE,Greece
+GRN,Grenada
+GUA,Guatemala
+GUI,Guinea
+GUM,Guam
+GUY,Guyana
+HAI,Haiti
+HKG,"Hong Kong, China"
+HON,Honduras
+HUN,Hungary
+INA,Indonesia
+IND,India
+IRI,Iran
+IRL,Ireland
+IRQ,Iraq
+ISL,Iceland
+ISR,Israel
+ISV,Virgin Islands (US)
+IVB,British Virgin Islands
+ITA,Italy
+JAM,Jamaica
+JOR,Jordan
+JPN,Japan
+KAZ,Kazakhstan
+KEN,Kenya
+KGZ,Kyrghizstan
+KIR,Kiribati
+KOR,Korea
+KOS,Kosovo
+KSA,Kingdom of Saudi Arabia
+KUW,Kuwait
+LAO,Laos
+LAT,Latvia
+LBA,Libya
+LBR,Liberia
+LCA,Saint Lucia
+LES,Lesotho
+LIB,Lebanon
+LIE,Liechtenstein
+LTU,Lithuania
+LUX,Luxembourg
+MAC,Macao
+MAD,Madagascar
+MAR,Morocco
+MAS,Malaysia
+MAW,Malawi
+MDA,Moldova
+MDV,Maldives
+MEX,Mexico
+MGL,Mongolia
+MHL,Marshall Islands
+MKD,Former Yugoslav Republic of Macedonia
+MLI,Mali
+MLT,Malta
+MNE,Montenegro
+MNT,Montserrat
+MON,Monaco
+MOZ,Mozambique
+MRI,Mauritius
+MTN,Mauritania
+MYA,Myanmar
+NAM,Namibia
+NCA,Nicaragua
+NED,Netherlands
+NEP,Nepal
+NFI,Norfolk Island
+NGR,Nigeria
+NIG,Niger
+NMI,Northern Mariana Islands
+NOR,Norway
+NRU,Nauru
+NZL,New Zealand
+OMA,Oman
+PAK,Pakistan
+PAN,Panama
+PAR,Paraguay
+PER,Peru
+PHI,Philippines
+PLE,Palestine
+PLW,Palau
+PNG,Papua New Guinea
+POL,Poland
+POR,Portugal
+PRK,DPR Korea
+PUR,Puerto Rico
+PYF,French Polynesia
+QAT,Qatar
+ROU,Romania
+RSA,Republic of South Africa
+RUS,Russia
+RWA,Rwanda
+SAM,Western Samoa
+SEN,Senegal
+SEY,Seychelles
+SIN,Singapore
+SKN,Saint Kitts & Nevis
+SLE,Sierra Leone
+SLO,Slovenia
+SMR,San Marino
+SOL,Solomon Islands
+SOM,Somalia
+SRB,Serbia
+SRI,Sri Lanka
+SSD,South Sudan
+STP,DR of São Tomé & Princip
+SUD,Sudan
+SUI,Switzerland
+SUR,Surinam
+SVK,Slovak Republic
+SWE,Sweden
+SWZ,Swaziland
+SYR,Syria
+TAN,Tanzania
+TGA,Tonga
+THA,Thailand
+TJK,Tadjikistan
+TKM,Turkmenistan
+TKS,Turks & Caicos Islands
+TLS,East Timor
+TOG,Togo
+TPE,Chinese Taipei
+TRI,Trinidad & Tobago
+TUN,Tunisia
+TUR,Turkey
+TUV,Tuvalu
+UAE,United Arab Emirates
+UGA,Uganda
+UKR,Ukraine
+URU,Uruguay
+USA,United States
+UZB,Uzbekistan
+VAN,Vanuatu
+VEN,Venezuela
+VIE,Vietnam
+VIN,Saint Vincent & the Grenadines
+YEM,Yemen
+ZAM,Zambia
+ZIM,Zimbabwe
+AFG,Afghanistan
+AIA,Anguilla
+ALB,Albania
+ALG,Algeria
+AND,Andorra
+ANG,Angola
+ANT,Antigua & Barbuda
+ARG,Argentina
+ARM,Armenia
+ARU,Aruba
+ASA,American Samoa
+AUS,Australia
+AUT,Austria
+AZE,Azerbaijan
+BAH,Bahamas
+BAN,Bangladesh
+BAR,Barbados
+BDI,Burundi
+BEL,Belgium
+BEN,Benin
+BER,Bermuda
+BHU,Bhutan
+BIH,Bosnia & Herzegovina
+BIZ,Belize
+BLR,Belarus
+BOL,Bolivia
+BOT,Botswana
+BRA,Brazil
+BRN,Bahrain
+BRU,Brunei
+BUL,Bulgaria
+BUR,Burkina Faso
+CAF,Central African Republic
+CAM,Cambodia
+CAN,Canada
+CAY,Cayman Islands
+CGO,Congo
+CHA,Chad
+CHI,Chile
+CHN,PR of China
+CIV,Ivory Coast
+CMR,Cameroon
+COD,DR of Congo
+COK,Cook Islands
+COL,Colombia
+COM,Comoros
+CPV,Cape Verde Islands
+CRC,Costa Rica
+CRO,Croatia
+CUB,Cuba
+CYP,Cyprus
+CZE,Czech Republic
+DEN,Denmark
+DJI,Djibouti
+DMA,Dominica
+DOM,Dominican Republic
+ECU,Ecuador
+EGY,Egypt
+ERI,Eritrea
+ESA,El Salvador
+ESP,Spain
+EST,Estonia
+ETH,Ethiopia
+FIJ,Fiji
+FIN,Finland
+FRA,France
+FSM,Federated States of
+,Micronesia
+GAB,Gabon
+GAM,The Gambia
+GBR,Great Britain & Northern Ireland
+GBS,Guinea Bissau
+GEO,Georgia
+AHO,Netherlands Antilles
+AMS,American Samoa (now ASA)
+ANO,Angola (now ANG)
+ANG,Anguilla (now AIA)
+AUA,Australasia
+BGU,British Guiana (now GUY)
+BHR,Bahrain (now BRN)
+BHO,British Honduras
+BIR,Burma (now MYA/Myanmar)
+BKF,Burkina Faso (now BUR)
+BOH,Bohemia
+BOS,Bosnia & Herzegovina (now BIH)
+BSH,Bosnia & Herzegovina (now BIH)
+BUR,"Burundi (now BDI, BUR is now Burkina Faso)"
+BVI,British Virgin Islands (now IVB)
+BWI,British West Indies
+CEY,Ceylon (now SRI)
+CKI,Cook Islands (now COK)
+CVD,Cape Verde Islands (now CPV)
+DAH,Dahomey (Now BEN/Benin)
+DMN,Dominica (now DMA)
+ENG,England
+EUN,Unified Team (Formerly USSR)
+FRG,Federal Republic of Germany (now GER)
+GBI,Great Britain & Ireland (pre-1922)
+GDR,German Democratic Republic (now GER)
+GOL,Gold Coast (now GHA/Ghana)
+GUD,Guadeloupe
+HOL,Netherlands (now NED)
+IRN,Iran (now IRI)
+IOA,Independent Olympic Athletes
+IOP,Independent Olympic Participants
+KHM,Kampuchea (now CAM/Cambodia)
+KZK,Kazakhstan (now KAZ)
+LAN,Lesser Antilles
+LIT,Lithuania (now LTU)
+MAL,Malaya
+MLD,Maldives (now MDV)
+MOL,Moldova (now MDA)
+MRT,Martinique
+MSH,Marshall Islands (now MHL)
+NAU,Nauru (now NRU)
+NCL,New Caledonia
+NIR,Northern Ireland
+NBO,North Borneo
+NRH,Northern Rhodesia (now ZAM)
+NMA,Northern Mariana Islands (now NMI)
+OMN,Oman (now OMA)
+PAL,Palestine (now PLE)
+PRY,Democratic People’s Republic of Yemen (now YEM)
+RHO,Rhodesia (now ZIM/Zimbabwe)
+ROC,Republic of China
+ROM,Romania (now ROU)
+SAA,Saar
+SAF,South Africa (now RSA)
+SCG,"Serbia & Montenegro (fomerly Yugoslavia, now SRB & MNE)"
+SCO,Scotland
+SER,Serbia (now SRB)
+STK,St Kitts & Nevis (now SKN)
+STL,St Lucia (now LCA)
+STV,St Vincent (now VIN)
+TWC,Tahti West Coast
+UAR,United Arab Republic
+URS,USSR
+TAH,Tahiti (now PYF)
+TCH,(Up to 1992) Czechoslovakia
+TON,Tonga (now TGA)
+VOL,Upper Volta (now BUR/Burkina Faso)
+WAL,Wales
+YAR,Yemen Arab Republic (now YEM)
+YUG,Yugoslavia
+ZAI,Zaire (now COD)
