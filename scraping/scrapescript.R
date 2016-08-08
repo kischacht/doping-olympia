@@ -24,7 +24,7 @@ for(i in 1:4){
     names(years)[i] <- athlinks[i]
 }
 #restliche links von wiki scrapen
-wikilinks <- paste0("https://en.wikipedia.org/wiki/Athletics_at_the_",c(1996, 1992, 1988, 1984, 1976),"_Summer_Olympics")
+wikilinks <- paste0("https://en.wikipedia.org/wiki/Athletics_at_the_",c(2012,2008,2004,2000),"_Summer_Olympics")
 yearswiki <- list()
 for(i in 1:length(wikilinks)){
   disclinks <- read_html(wikilinks[i]) %>% html_nodes("a") %>%
@@ -41,21 +41,20 @@ for(i in 1:length(wikilinks)){
   names(yearswiki)[i] <- wikilinks[i]
 }
 #"/wiki/Athletics_at_the_1992_Summer_Olympics_%E2%80%93_Men%27s_shot_put" Error in out[j + k, ] : Indizierung außerhalb der Grenzen
+#"/wiki/Athletics_at_the_2000_Summer_Olympics_%E2%80%93_Men%27s_long_jump"
 #Fehler manuell beheben:
-yearswiki[[2]]$`/wiki/Athletics_at_the_1992_Summer_Olympics_%E2%80%93_Men%27s_shot_put` <- html_table(yearswiki[[2]]$`/wiki/Athletics_at_the_1992_Summer_Olympics_%E2%80%93_Men%27s_shot_put`[5:7], fill=T)
+yearswiki[[4]]$`/wiki/Athletics_at_the_2000_Summer_Olympics_%E2%80%93_Men%27s_long_jump` <- html_table(yearswiki[[4]]$`/wiki/Athletics_at_the_2000_Summer_Olympics_%E2%80%93_Men%27s_long_jump`[8:9], fill=T)
 rm(i,j, discs, disclinks)
-save.image("data.Rdata")
+save.image("wikidata.Rdata")
 
 
 ##saubermachen###
-rm(list = ls())
+
 
 ###IOC seite: 2000-2012
 load("data.Rdata")
 #remove NA columns
-#years = years[c(1,2,3,4)]
-str(x[[1]], max.level = 1)
-View(years[[1]][[1]])
+
 years <- lapply(years, function(year) lapply(year, function(discdata) lapply(discdata, function(i) i <- i[,1:4])))
 years <- lapply(years, function(year) lapply(year, function(d) lapply(d, function(discdata) setNames(discdata, c("Rank","Athlete","Result","Notes")))))
 years <- lapply(years, function(year) lapply(year, function(discdata) do.call(rbind, discdata)))
@@ -73,11 +72,11 @@ years <- years[,-3]
 
 
 ##wiki: vor 2000##
-
+load("wikidata.Rdata")
 #relevante datensätze heraussuchen
 cols <- lapply(yearswiki, function(year){
   lapply(year, function(disc){
-    sapply(disc, function(i)( any( grepl("Rank|RANK|Athlete|Atltete", names(i)) ) ) )
+    sapply(disc, function(i)( any( grepl("Rank|RANK|Athlete|Atltete", names(i)) | grepl("Rank|RANK|Athlete|Atltete", i[1,]) ) ))
     })
   })
 for(i in 1:length(yearswiki)){
@@ -93,8 +92,14 @@ for(i in 1:length(yearswiki)){
 yearswiki <- lapply(yearswiki, function(year) lapply(year, function(disc) lapply(disc, function(i) setNames(i, 1:ncol(i)))))
 #alles auf 4 spalten herunterbrechen
 yearswiki <- lapply(yearswiki, function(year) lapply(year, function(disc) lapply(disc, function(i) i <- i[1:min(ncol(i),4)] )))
+
+#herausfinden, wo spalte 4 gebraucht wird
+sapply(yearswiki, function(year) sapply(year, function(disc) sapply(disc, ncol)))
+str(yearswiki[[1]], max.level = 1)
+#--> wird überall gebraucht, keine anomalien mit 3 spalten
+
 #bis auf ausnahmen auf 3 herunter
-for(i in 1:length(yearswiki)){
+'for(i in 1:length(yearswiki)){
   disciplines <- yearswiki[[i]]
   print(names(yearswiki)[i])
   for(j in 1:length(disciplines)){ #length(year) = anzahl disziplinen
@@ -109,11 +114,12 @@ for(i in 1:length(yearswiki)){
     else disciplines[[j]] <- disciplines[[j]][length(disciplines[[j]])]
   }
   yearswiki[[i]] <- disciplines
-}
+}'
+
 #disziplinen zusammenbinden
 yearswiki <- lapply(yearswiki, function(year) lapply(year, function(disc) do.call(rbind, disc)))
 #vierte spalte mit dritter mergen
-for(i in 1:length(yearswiki)){
+'for(i in 1:length(yearswiki)){
   disciplines <- yearswiki[[i]]
   print(names(yearswiki)[i])
   for(j in 1:length(disciplines)){ # anzahl disziplinen
@@ -124,8 +130,7 @@ for(i in 1:length(yearswiki)){
     }
   }
   yearswiki[[i]] <- disciplines
-}
-#doppelte entfernen
+}'
 
 #jahre zusammenbinden
 yearswiki <- lapply(yearswiki, function(year) do.call(rbind, year))
@@ -135,4 +140,4 @@ yearswiki$Game <- row.names(yearswiki)
 
 save.image("data.Rdata")
 write.csv(years, "IOC-teilnehmer.csv", row.names = F)
-write.csv(yearswiki, "wiki-teilnehmer.csv", row.names = F)
+write.csv(yearswiki, "wiki-teilnehmer-ab2000.csv", row.names = F)
