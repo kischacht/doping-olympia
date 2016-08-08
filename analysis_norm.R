@@ -35,7 +35,6 @@ tmp <- athl %>% group_by(Geschlecht, Jahr) %>% summarize(count=length(unique(Nam
 cpg <- left_join(cpg, tmp, by="Geschlecht") %>% mutate(norm = count/sum)
 write.csv(cpk, "fällenachgeschlecht.csv", row.names = F)
 tmp <- athl %>% group_by(Geschlecht, Jahr) %>% summarize(count=length(unique(Name)))
-  
 save.image(file="datasets.Rdata")
 
 ##################
@@ -78,5 +77,5 @@ ggplot(cpg, aes(x=Geschlecht, y=norm, fill=Geschlecht)) +
 
 dev.off()
 
-tmp <- athl %>% group_by(Jahr, Disziplin, Geschlecht) %>% summarize(count= n())
+tmp <- athl %>% group_by(Jahr, Geschlecht) %>% summarize(count= n())
 

@@ -49,12 +49,16 @@ save.image("data.Rdata")
 
 ##saubermachen###
 rm(list = ls())
+
 ###IOC seite: 2000-2012
 load("data.Rdata")
 #remove NA columns
 #years = years[c(1,2,3,4)]
-years <- lapply(years, function(year) lapply(year, function(discdata) discdata <- discdata[,1:4]))
-years <- lapply(years, function(year) lapply(year,function(discdata) setNames(discdata, c("Rank","Athlete","Result","Notes"))))
+str(x[[1]], max.level = 1)
+View(years[[1]][[1]])
+years <- lapply(years, function(year) lapply(year, function(discdata) lapply(discdata, function(i) i <- i[,1:4])))
+years <- lapply(years, function(year) lapply(year, function(d) lapply(d, function(discdata) setNames(discdata, c("Rank","Athlete","Result","Notes")))))
+years <- lapply(years, function(year) lapply(year, function(discdata) do.call(rbind, discdata)))
 years <- lapply(years, function(year) do.call(rbind, year))
 years <- lapply(years, function(year) mutate(year, Game = row.names(year)))
 years <- do.call(rbind, years)
@@ -69,6 +73,7 @@ years <- years[,-3]
 
 
 ##wiki: vor 2000##
+
 #relevante datensätze heraussuchen
 cols <- lapply(yearswiki, function(year){
   lapply(year, function(disc){
