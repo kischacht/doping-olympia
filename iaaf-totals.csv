@@ -1,0 +1,32 @@
+Year;dates;Countries;Athletes;Men;Women;Events;eventsmen;eventswomen
+1896;Apr 6-10 Athens, GRE Panathenaikon Stadium;9;63;63;0;12;12;0
+1900;Jul 14-22 Paris, FRA Bois de Boulogne;15;119;119;0;23;23;0
+1904;Aug 29-Sep 3 St Louis, USA Washington University;11;118;118;0;24;24;0
+1906;Apr 25-May 1 Athens, GRE Panathenaikon Stadium;19;233;233;0;21;21;0
+1908;Jul 13-25 London, GBR White City Stadium;20;431;431;0;26;26;0
+1912;Jul 6-15 Stockholm, SWE Olympic Stadium;26;534;534;0;30;30;0
+1916;Cancelled Berlin, GER;;;;;;;
+1920;Aug 15-23 Antwerp, BEL Champs de Beerschot Stadium;25;509;509;0;29;29;0
+1924;Jul 6-13 Paris, FRA Stade de Colombes;40;660;660;0;27;27;0
+1928;Jul 29-Aug 5 Amsterdam, NED Olympic Stadium;40;707;612;95;27;22;5
+1932;Jul 31-Aug 7 Los Angeles, USA Memorial Coliseum;34;386;332;54;29;23;6
+1936;Aug 2-9 Berlin, GER Olympic Stadium;43;776;678;98;29;23;6
+1940;Cancelled Tokyo, JPN, then Helsinki, FIN;;;;;;;
+1944;Cancelled London, GBR;;;;;;;
+1948;Jul 30-Aug 7 London, GBR Wembley Stadium;53;745;601;144;33;24;9
+1952;Jul 20-27 Helsinki, FIN Olympic Stadium;57;963;776;187;33;24;9
+1956;Nov 23-Dec 1 Melbourne, AUS Melbourne Cricket Ground;59;720;573;147;33;24;9
+1960;Aug 31-Sep 10 Rome, ITA Olympic Stadium;72;1016;812;204;34;24;10
+1964;Oct 14-21 Tokyo, JPN National Stadium;80;1018;782;236;36;24;12
+1968;Oct 13-20 Mexico City, MEX National Stadium;92;1028;785;243;36;24;12
+1972;Aug 31-Sep 10 Munich, FRG Olympic Stadium;104;1330;961;369;38;24;14
+1976;Jul 23-30 Montreal, CAN Olympic Stadium;79;1006;703;303;37;23;14
+1980;Jul 24-Aug 1 Moscow, URS Lenin Stadium;70;960;694;266;38;24;14
+1984;Aug 3-12 Los Angeles, USA Memorial Coliseum;124;1280;895;385;41;24;17
+1988;Sep 23-Oct 2 Seoul, KOR Olympic Stadium;148;1617;1063;554;42;24;18
+1992;Jul 31-Aug 9 Barcelona, ESP Montjuic Stadium;156;1726;1104;622;43;24;19
+1996;Jul 26-Aug 4 Atlanta, USA Olympic Stadium;190;2057;1302;755;44;24;20
+2000;Sep 22-Oct 1 Sydney, AUS Olympic Stadium;193;2137;1257;880;46;24;22
+2004;Aug 18-28 Athens, GRE Olympic Stadium & Olympia;196;1995;1079;916;46;24;22
+2008;Aug 15-24 Beijing, CHN Olympic Stadium;200;2056;1082;974;47;24;23
+2012;Aug 3-12 London, GBR Olympic Stadium;202;2080;1088;992;47;24;23

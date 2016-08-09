@@ -141,3 +141,15 @@ yearswiki$Game <- row.names(yearswiki)
 save.image("data.Rdata")
 write.csv(years, "IOC-teilnehmer.csv", row.names = F)
 write.csv(yearswiki, "wiki-teilnehmer-ab2000.csv", row.names = F)
+
+##links quellen
+x <- as.character(unique(athl$Link))
+tail(x)
+sources = list()
+for(i in 1:length(x)){
+    print(x[i])
+    try(sources[[i]] <- read_html(x[i]) %>%
+      html_nodes(".reflist") %>% html_nodes("a") %>%
+    html_attr("href"))
+    names(sources)[i] <- x[i]
+}
