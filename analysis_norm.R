@@ -64,7 +64,7 @@ ggplot(cpy, aes(x=Jahr, y=count)) + theme_light() + scale_x_continuous(breaks = 
 cpc <- cpc %>% ungroup %>% arrange(-count)
 x <- cpc %>% mutate(Land = c(cpc$Land[1:5], rep("Sonstige",length(cpc$Land)-5)))
 x <- mutate(x, Land = factor(x$Land, levels=c("Türkei", "Russland","Belarus","Ukraine","USA","Sonstige"))) %>%
-  group_by(Land) %>% summarize(count=sum(count), norm=mean(norm), sum=sum(sum))
+  group_by(Land) %>% summarize(count=sum(count), sum=sum(sum), norm=count/sum)
 #gesamtdurchschnitt
 cmean = sum(cpc$count)/sum(cpc$sum) #0.01231637
 ggplot(x, aes(x=Land, y=norm, fill=Land)) + theme_minimal() +
