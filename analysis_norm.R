@@ -129,28 +129,12 @@ ggplot(cpk, aes(x=Kategorie, y=norm, fill=Kategorie)) +
 '
 dev.off()
 
-#zahlenabgleich
-iaaf <- read.csv("iaaf-totals.csv",sep=";",quote="",stringsAsFactors = F)
-#gesamtzahl nach jahren
-ynrs <- athl %>% group_by(Jahr) %>% summarize(count = length(unique(Name))) %>% left_join(iaaf[c(1,4)], by=c("Jahr"="Year")) %>%
-  mutate(diff = count-Athletes, perc=abs(1-(count/Athletes)))
-#länderzahl nach jahren
-cnrs <- athl %>% group_by(Jahr) %>% summarize(count = length(unique(Land))) %>% left_join(iaaf[c(1,3)], by=c("Jahr"="Year")) %>%
-  mutate(diff = count-Countries, perc=abs(1-(count/Countries)))
-#männerzahl nach jahren
-mnrs <- athl %>% group_by(Jahr) %>% filter(Geschlecht == "Men") %>%
-  summarize(count = length(unique(Name))) %>% left_join(iaaf[c(1,5)], by=c("Jahr"="Year")) %>%
-  mutate(diff = count-Men, perc=abs(1-(count/Men)))
-#frauenzahl nach jahren
-wnrs <- athl %>% group_by(Jahr) %>% filter(Geschlecht == "Women") %>%
-  summarize(count = length(unique(Name))) %>% left_join(iaaf[c(1,6)], by=c("Jahr"="Year")) %>%
-  mutate(diff = count-Women, perc=abs(1-(count/Women)))
-#eventzahl nach jahren
-dnrs <- athl %>% group_by(Jahr, Geschlecht) %>% summarize(count = length(unique(Disziplin))) %>%
-  group_by(Jahr) %>% summarize(count = sum(count)) %>% left_join(iaaf[c(1,7)], by=c("Jahr"="Year")) %>%
-  mutate(diff = count-Events, perc=abs(1-(count/Events)))
-
 
 #32
+athlwiki <- read.csv("LA-teilnehmer.csv", quote="", encoding="utf-8", sep=";")
+wiki <- athlwiki %>% group_by(Land, Jahr, Geschlecht) %>% summarize(count=length(unique(Name))) %>%
+  group_by(Land) %>% summarize(sum = sum(count))
+cpc <- left_join(cpc, wiki, by=c("COUNTRY"="Land")) %>% arrange(-count)
 
-athl %>% group_by(Jahr) %>% filter(Land == "TUR") %>% summarize(n = length(unique(Name)))
+ioc <- athl %>% group_by(Land, Jahr, Geschlecht) %>% summarize(count=length(unique(Name))) %>%
+  group_by(Land) %>% summarize(sum = sum(count)) %>% arrange
