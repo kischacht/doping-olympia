@@ -3,8 +3,8 @@ setwd("/Users/administrator/Desktop/doping olympische spiele")
 library(dplyr)
 library(ggplot2)
 cases <- read.csv("IAAF-doping-cases-clean-deutsch.csv", stringsAsFactors = F, encoding="utf-8")
-athl <- read.csv("LA-teilnehmer.csv", quote="", encoding="utf-8", sep=";")
-
+athl <- read.csv("participants-by-event.csv", quote="", encoding="utf-8", sep=";")
+names(athl) = c("Jahr","Ort","Name","Land","Geschlecht","Sport","Disziplin","Medal")
 #fälle pro jahr
 cpy <- cases %>% group_by(Jahr, Geschlecht) %>% summarize(count=length(unique(Name))) %>%
   group_by(Jahr) %>% summarize(count=sum(count))# %>% arrange(-count)
@@ -92,7 +92,7 @@ x$sum[6] <- sum(tmp2$sum); x$norm[6] <- x$count[6] / x$sum[6]
 #gesamtdurchschnitt
 cmean = sum(cpc$count)/sum(tmp$sum) #0.00514601
 ggplot(x, aes(x=Land, y=norm, fill=Land)) + theme_minimal()  + scale_y_continuous(labels=scales::percent) +
-  geom_bar(stat="identity") + ggtitle("Doping-Fälle nach Ländern") +
+  geom_bar(stat="identity") + ggtitle("Anteil überführter Athleten nach Land") +
   geom_hline(yintercept = cmean) + theme(legend.position="none") +
   geom_text(aes(x=1, y=cmean, label=paste("Gesamtdurchschnitt =", paste0(round(cmean*100,2),"%"))), hjust=0,vjust=-0.5)+
   geom_text(position= position_dodge(width=0.9), aes(x=Land, label=paste0(count,"/",sum)), vjust=-0.5)
@@ -100,7 +100,7 @@ ggplot(x, aes(x=Land, y=norm, fill=Land)) + theme_minimal()  + scale_y_continuou
 #fälle nach geschlecht
 cpg <- cpg %>% ungroup %>% arrange(-norm)
 ggplot(cpg, aes(x=Geschlecht, y=norm, fill=Geschlecht)) + theme_minimal() + scale_y_continuous(labels=scales::percent) +
-  geom_bar(stat="identity") + ggtitle("Doping-Fälle nach Geschlecht") +
+  geom_bar(stat="identity") + ggtitle("Anteil überführter Athleten nach Geschlecht") +
   theme(legend.position="none", axis.text.x = element_text(angle=45,hjust=1), panel.background = element_rect(fill="white")) +
   geom_text(position= position_dodge(width=0.9), aes(x=Geschlecht, label=paste0(count,"/",sum)), vjust=-0.5)
 
