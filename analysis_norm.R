@@ -5,6 +5,7 @@ library(ggplot2)
 cases <- read.csv("IAAF-doping-cases-clean-deutsch.csv", stringsAsFactors = F, encoding="utf-8")
 athl <- read.csv("participants-by-event.csv", quote="", encoding="utf-8", sep=";")
 names(athl) = c("Jahr","Ort","Name","Land","Geschlecht","Sport","Disziplin","Medal")
+
 #fälle pro jahr
 cpy <- cases %>% group_by(Jahr, Geschlecht) %>% summarize(count=length(unique(Name))) %>%
   group_by(Jahr) %>% summarize(count=sum(count))# %>% arrange(-count)
@@ -15,9 +16,11 @@ cpy <- left_join(cpy, tmp, by=c("Jahr")) %>% mutate(norm = count/sum)
 write.csv(cpy, "fälleprojahr.csv", row.names = F)
 
 #fälle pro land
-cpc <- cases %>% group_by(COUNTRY, Land, Jahr) %>% summarize(count=length(unique(Name))) %>%
+cpc <- cases %>% group_by(COUNTRY, Land, Jahr) %>% filter(Jahr >= 1996) %>%
+  summarize(count=length(unique(Name))) %>%
   group_by(COUNTRY, Land) %>% summarize(count=sum(count)) %>% arrange(-count)
-tmp <- athl %>% group_by(Land, Jahr, Geschlecht) %>% summarize(count=length(unique(Name))) %>%
+tmp <- athl %>% group_by(Land, Jahr, Geschlecht) %>% filter(Jahr >= 1996) %>%
+  summarize(count=length(unique(Name))) %>%
   group_by(Land) %>% summarize(sum = sum(count))
 cpc <- left_join(cpc, tmp, by=c("COUNTRY" = "Land")) %>% mutate(norm = count/sum)
 write.csv(cpc, "fälleproland.csv", row.names = F)
@@ -85,7 +88,8 @@ x <- cpc %>% mutate(Land = c(cpc$Land[1:5], rep("Sonstige",length(cpc$Land)-5)))
 x <- mutate(x, Land = factor(x$Land, levels=c("Türkei", "Russland","Belarus","Ukraine","USA","Sonstige"))) %>%
   group_by(Land) %>% summarize(count=sum(count), sum=sum(sum), norm=count/sum)
 #sonstiges summe und norm
-tmp <- athl %>% group_by(Land, Jahr, Geschlecht) %>% summarize(count=length(unique(Name))) %>%
+tmp <- athl %>% group_by(Land, Jahr, Geschlecht) %>% filter(Jahr >= 1996) %>%
+  summarize(count=length(unique(Name))) %>%
   group_by(Land) %>% summarize(sum = sum(count))
 tmp2 = filter(tmp, Land != "TUR" & Land != "RUS" & Land != "BLR" & Land != "UKR" & Land != "USA")
 x$sum[6] <- sum(tmp2$sum); x$norm[6] <- x$count[6] / x$sum[6]
