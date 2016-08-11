@@ -53,6 +53,7 @@ write.csv(cpg, "fällenachgeschlecht.csv", row.names = F)
 write.csv(cpgy, "fällenachgeschlechtundjahr.csv", row.names = F)
 
 #tests pro jahr
+#tests bei olympischen spielen
 tests <- read.csv("testnrs.csv")[c(1,3)]
 tests$Number.of.tests <- as.numeric(gsub(",","",tests$Number.of.tests))
 
@@ -67,9 +68,10 @@ pdf("results/alle-normiert.pdf", width=14)
 
 #fälle pro jahr
 ggplot(cpy, aes(x=Jahr, y=count)) + theme_light() + scale_x_continuous(breaks = rev(unique(cpgy$Jahr))) +
-  ggtitle("Doping-Fälle über die Jahre") + geom_line(colour="orange") + geom_point() +
+  ggtitle("Doping-Fälle in der Leichtathletik bei den olympischen Spielen") + geom_line(colour="orange") + geom_point() +
   geom_text(aes(x=Jahr, label=paste0(count)), vjust=-1)
 '
+
 #fälle pro jahr normiert
 ggplot(cpy, aes(x=Jahr, y=norm)) + theme_light() + scale_x_continuous(breaks = rev(unique(cpgy$Jahr))) +
   ggtitle("Anteil überführter Athleten über die Jahre") + geom_line(colour="orange") + geom_point() +
@@ -77,8 +79,9 @@ ggplot(cpy, aes(x=Jahr, y=norm)) + theme_light() + scale_x_continuous(breaks = r
 '
 
 #tests pro jahr
+#doping tests 
 ggplot(tests, aes(x=Year, y=Number.of.tests)) + theme_light() + scale_x_continuous(breaks = rev(unique(tests$Year))) +
-  ggtitle("Doping-Tests über die Jahre") + geom_line(colour="orange") + geom_point() +
+  ggtitle("Gesamtzahl an Doping-Tests bei den olympischen Spielen") + geom_line(colour="orange") + geom_point() +
   geom_text(aes(x=Year, label=paste0(Number.of.tests)), vjust=-1)
 
 #fälle pro land
@@ -96,7 +99,7 @@ x$sum[6] <- sum(tmp2$sum); x$norm[6] <- x$count[6] / x$sum[6]
 #gesamtdurchschnitt
 cmean = sum(cpc$count)/sum(tmp$sum) #0.00514601
 ggplot(x, aes(x=Land, y=norm, fill=Land)) + theme_minimal()  + scale_y_continuous(labels=scales::percent) +
-  geom_bar(stat="identity") + ggtitle("Anteil überführter Athleten nach Land") +
+  geom_bar(stat="identity") + ggtitle("Anteil überführter Leichtathleten nach Land seit einschl. 1996") +
   geom_hline(yintercept = cmean) + theme(legend.position="none") +
   geom_text(aes(x=1, y=cmean, label=paste("Gesamtdurchschnitt =", paste0(round(cmean*100,2),"%"))), hjust=0,vjust=-0.5)+
   geom_text(position= position_dodge(width=0.9), aes(x=Land, label=paste0(count,"/",sum)), vjust=-0.5)
@@ -104,7 +107,7 @@ ggplot(x, aes(x=Land, y=norm, fill=Land)) + theme_minimal()  + scale_y_continuou
 #fälle nach geschlecht
 cpg <- cpg %>% ungroup %>% arrange(-norm)
 ggplot(cpg, aes(x=Geschlecht, y=norm, fill=Geschlecht)) + theme_minimal() + scale_y_continuous(labels=scales::percent) +
-  geom_bar(stat="identity") + ggtitle("Anteil überführter Athleten nach Geschlecht") +
+  geom_bar(stat="identity") + ggtitle("Anteil überführter Leichtathleten nach Geschlecht") +
   theme(legend.position="none", axis.text.x = element_text(angle=45,hjust=1), panel.background = element_rect(fill="white")) +
   geom_text(position= position_dodge(width=0.9), aes(x=Geschlecht, label=paste0(count,"/",sum)), vjust=-0.5)
 
