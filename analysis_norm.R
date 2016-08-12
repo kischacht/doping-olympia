@@ -40,11 +40,13 @@ cpk <- left_join(cpk, tmp, by="Kategorie") %>% mutate(norm = count/sum)
 write.csv(cpk, "fälleprokategorie.csv", row.names = F)
 
 #fälle nach geschlecht
-cpg <- cases %>% group_by(Geschlecht, Jahr) %>% summarize(count=length(unique(Name))) %>%
+cpg <- cases %>% group_by(Geschlecht, Jahr) %>% summarize(count=length(unique(Name))) %>% filter(Jahr < 2012) %>%
   group_by(Geschlecht) %>% summarize(count=sum(count)) %>%arrange(-count)
-tmp <- athl %>% group_by(Geschlecht, Jahr) %>% summarize(count=length(unique(Name))) %>%
+tmp <- athl %>% group_by(Geschlecht, Jahr) %>% summarize(count=length(unique(Name))) %>% filter(Jahr < 2012) %>%
+  #spread(Geschlecht, count) %>% mutate(wshare = Women/(Women+Men))
   group_by(Geschlecht) %>% summarize(sum=sum(count)) 
 cpg <- left_join(cpg, tmp, by="Geschlecht") %>% mutate(norm = count/sum)
+
 #fälle nach geschlecht und jahr
 cpgy <- cases %>% group_by(Geschlecht, Jahr) %>% summarize(count=length(unique(Name))) %>%arrange(-count)
 tmp <- athl %>% group_by(Geschlecht, Jahr) %>% summarize(sum=length(unique(Name)))
@@ -88,7 +90,7 @@ ggplot(tests, aes(x=Year, y=Number.of.tests)) + theme_light() + scale_x_continuo
 #sonstiges kategorie einrichten
 cpc <- cpc %>% ungroup %>% arrange(-count)
 x <- cpc %>% mutate(Land = c(cpc$Land[1:5], rep("Sonstige",length(cpc$Land)-5)))
-x <- mutate(x, Land = factor(x$Land, levels=c("Türkei", "Russland","Belarus","Ukraine","USA","Sonstige"))) %>%
+x <- mutate(x, Land = factor(x$Land, levels=c("Türkei","Belarus","Ukraine","Russland","USA","Sonstige"))) %>%
   group_by(Land) %>% summarize(count=sum(count), sum=sum(sum), norm=count/sum)
 #sonstiges summe und norm
 tmp <- athl %>% group_by(Land, Jahr, Geschlecht) %>% filter(Jahr >= 1996) %>%
@@ -107,12 +109,12 @@ ggplot(x, aes(x=Land, y=norm, fill=Land)) + theme_minimal()  + scale_y_continuou
 #fälle nach geschlecht
 cpg <- cpg %>% ungroup %>% arrange(-norm)
 ggplot(cpg, aes(x=Geschlecht, y=norm, fill=Geschlecht)) + theme_minimal() + scale_y_continuous(labels=scales::percent) +
-  geom_bar(stat="identity") + ggtitle("Anteil überführter Leichtathleten nach Geschlecht") +
+  geom_bar(stat="identity") + ggtitle("Anteil überführter Leichtathleten nach Geschlecht seit 2004") +
   theme(legend.position="none", axis.text.x = element_text(angle=45,hjust=1), panel.background = element_rect(fill="white")) +
   geom_text(position= position_dodge(width=0.9), aes(x=Geschlecht, label=paste0(count,"/",sum)), vjust=-0.5)
-
+'
 #fälle nach geschlecht und jahr
-'cpgy <- cpgy %>% ungroup %>% arrange(-norm)
+cpgy <- cpgy %>% ungroup %>% arrange(-norm)
 ggplot(cpgy, aes(x=Jahr, y=norm, fill=Geschlecht)) + scale_x_continuous(breaks = rev(unique(cpgy$Jahr))) +theme_minimal() +
   geom_bar(stat="identity",position="dodge") + ggtitle("Doping-Fälle nach Geschlecht und Jahr") +
   theme(legend.position="bottom", panel.background = element_rect(fill="white")) +
@@ -145,3 +147,7 @@ cpc <- left_join(cpc, wiki, by=c("COUNTRY"="Land")) %>% arrange(-count)
 
 ioc <- athl %>% group_by(Land, Jahr, Geschlecht) %>% summarize(count=length(unique(Name))) %>%
   group_by(Land) %>% summarize(sum = sum(count)) %>% arrange
+sum(cpy$count)
+x <- athl %>% group_by(Land, Jahr) %>% summarize(count = length(unique(Name)))
+mean(x$count)
+41/83
