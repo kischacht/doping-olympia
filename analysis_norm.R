@@ -40,9 +40,9 @@ cpk <- left_join(cpk, tmp, by="Kategorie") %>% mutate(norm = count/sum)
 write.csv(cpk, "fälleprokategorie.csv", row.names = F)
 
 #fälle nach geschlecht
-cpg <- cases %>% group_by(Geschlecht, Jahr) %>% summarize(count=length(unique(Name))) %>% filter(Jahr < 2012) %>%
+cpg <- cases %>% group_by(Geschlecht, Jahr) %>% summarize(count=length(unique(Name))) %>% filter(Jahr >= 1996) %>%
   group_by(Geschlecht) %>% summarize(count=sum(count)) %>%arrange(-count)
-tmp <- athl %>% group_by(Geschlecht, Jahr) %>% summarize(count=length(unique(Name))) %>% filter(Jahr < 2012) %>%
+tmp <- athl %>% group_by(Geschlecht, Jahr) %>% summarize(count=length(unique(Name))) %>% filter(Jahr >= 1996) %>%
   #spread(Geschlecht, count) %>% mutate(wshare = Women/(Women+Men))
   group_by(Geschlecht) %>% summarize(sum=sum(count)) 
 cpg <- left_join(cpg, tmp, by="Geschlecht") %>% mutate(norm = count/sum)
@@ -107,9 +107,9 @@ ggplot(x, aes(x=Land, y=norm, fill=Land)) + theme_minimal()  + scale_y_continuou
   geom_text(position= position_dodge(width=0.9), aes(x=Land, label=paste0(count,"/",sum)), vjust=-0.5)
 
 #fälle nach geschlecht
-cpg <- cpg %>% ungroup %>% arrange(-norm)
-ggplot(cpg, aes(x=Geschlecht, y=norm, fill=Geschlecht)) + theme_minimal() + scale_y_continuous(labels=scales::percent) +
-  geom_bar(stat="identity") + ggtitle("Anteil überführter Leichtathleten nach Geschlecht seit 2004") +
+cpg <- cpg %>% ungroup
+ggplot(cpg, aes(x=Geschlecht, y=count, fill=Geschlecht)) + theme_minimal() + scale_y_continuous(labels=scales::percent) +
+  geom_bar(stat="identity") + ggtitle("Anzahl überführter Leichtathleten nach Geschlecht seit 1996") +
   theme(legend.position="none", axis.text.x = element_text(angle=45,hjust=1), panel.background = element_rect(fill="white")) +
   geom_text(position= position_dodge(width=0.9), aes(x=Geschlecht, label=paste0(count,"/",sum)), vjust=-0.5)
 '
