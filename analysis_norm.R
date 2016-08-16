@@ -14,7 +14,7 @@ names(athl)[1] = "Land"
 write.csv(athl, "iaaf-teilnehmer.csv", row.names = F)
 
 #fälle pro jahr
-cpy <- cases %>% group_by(Jahr, Geschlecht) %>% summarize(count=length(unique(Name))) %>%
+cpy <- cases %>% group_by(Jahr) %>% summarize(count=length(unique(Name)))# %>%
   group_by(Jahr) %>% summarize(count=sum(count))# %>% arrange(-count)
 tmp <- athl %>% group_by(Jahr) %>% summarize(sum = sum(count))
 cpy <- left_join(cpy, tmp, by=c("Jahr")) %>% mutate(norm = count/sum)
@@ -107,3 +107,6 @@ ggplot(cpgy, aes(x=Jahr, y=norm, fill=Geschlecht)) + scale_x_continuous(breaks =
 '
 dev.off()
 
+length(unique(cases$Name))
+sort(unique(cases$Name))
+sum(cpy$count)
