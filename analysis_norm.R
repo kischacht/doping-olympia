@@ -55,11 +55,11 @@ save.image(file="datasets.Rdata")
 ##################
 
 library(ggplot2)
-pdf("results/alle-normiert.pdf", width=14)
+pdf("results/doping-results.pdf", width=14)
 
 #fälle pro jahr
 ggplot(cpy, aes(x=Jahr, y=count)) + theme_light() + scale_x_continuous(breaks = rev(unique(cpgy$Jahr))) +
-  ggtitle("Doping-Fälle in der Leichtathletik bei den olympischen Spielen") + geom_line(colour="orange") + geom_point() +
+  ggtitle("Doping Violations in Athletics at Olympic Games") + geom_line(colour="orange") + geom_point() +
   geom_text(aes(x=Jahr, label=paste0(count)), vjust=-1)
 '
 #fälle pro jahr normiert
@@ -79,6 +79,7 @@ cpc <- cpc %>% ungroup %>% arrange(-count)
 x <- cpc %>% mutate(Land = c(cpc$Land[1:5], rep("Sonstige",length(cpc$Land)-5)))
 x <- mutate(x, Land = factor(x$Land, levels=c("Türkei","Belarus","Ukraine","Russland","USA","Sonstige"))) %>%
   group_by(Land) %>% summarize(count=sum(count), sum=sum(sum), norm=count/sum)
+x$Land <- factor(c("Turkey","Belarus","Ukraine","Russia","USA","Others"), levels=c("Turkey","Belarus","Ukraine","Russia","USA","Others"))
 #sonstiges summe und norm
 tmp <- athl %>% filter(Jahr >= 1996) %>% group_by(Land) %>% summarize(sum = sum(count))
 tmp2 = filter(tmp, Land != "TUR" & Land != "RUS" & Land != "BLR" & Land != "UKR" & Land != "USA")
@@ -86,9 +87,9 @@ x$sum[6] <- sum(tmp2$sum); x$norm[6] <- x$count[6] / x$sum[6]
 #gesamtdurchschnitt
 cmean = sum(cpc$count)/sum(tmp$sum) #0.00514601
 ggplot(x, aes(x=Land, y=norm, fill=Land)) + theme_minimal()  + scale_y_continuous(labels=scales::percent) +
-  geom_bar(stat="identity") + ggtitle("Anteil überführter Leichtathleten nach Land seit einschl. 1996") +
+  geom_bar(stat="identity") + ggtitle("Share of Athletes with Annulled olympic performances due to Doping since incl. 1996") +
   geom_hline(yintercept = cmean) + theme(legend.position="none") +
-  geom_text(aes(x=1, y=cmean, label=paste("Gesamtdurchschnitt =", paste0(round(cmean*100,2),"%"))), hjust=0,vjust=-0.5)+
+  geom_text(aes(x=1, y=cmean, label=paste("Total mean =", paste0(round(cmean*100,2),"%"))), hjust=0,vjust=-0.5)+
   geom_text(position= position_dodge(width=0.9), aes(x=Land, label=paste0(count,"/",sum)), vjust=-0.5)
 
 #fälle nach geschlecht
