@@ -107,7 +107,7 @@ ggplot(cpgy, aes(x=Jahr, y=norm, fill=Geschlecht)) + scale_x_continuous(breaks =
   geom_text(position= position_dodge(width=3.5), aes(x=Jahr, label=paste0(count,"/",sum)), vjust=-0.5)
 '
 dev.off()
-
+write.csv("results/fälleproland-reduziert.csv",row-row.names = F)
 length(unique(cases$Name))
 sort(unique(cases$Name))
 sum(cpy$count)
