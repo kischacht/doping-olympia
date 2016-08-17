@@ -77,9 +77,9 @@ ggplot(tests, aes(x=Year, y=Number.of.tests)) + theme_light() + scale_x_continuo
 #sonstiges kategorie einrichten
 cpc <- cpc %>% ungroup %>% arrange(-count)
 x <- cpc %>% mutate(Land = c(cpc$Land[1:5], rep("Sonstige",length(cpc$Land)-5)))
-x <- mutate(x, Land = factor(x$Land, levels=c("Türkei","Belarus","Ukraine","Russland","USA","Sonstige"))) %>%
+x <- mutate(x, Land = factor(x$Land, levels=c("Türkei","Belarus","Russland","Ukraine","USA","Sonstige"))) %>%
   group_by(Land) %>% summarize(count=sum(count), sum=sum(sum), norm=count/sum)
-#x$Land <- factor(c("Turkey","Belarus","Ukraine","Russia","USA","Others"), levels=c("Turkey","Belarus","Ukraine","Russia","USA","Others"))
+#x$Land <- factor(c("Turkey","Belarus","Russia","Ukraine","USA","Others"), levels=c("Turkey","Belarus","Ukraine","Russia","USA","Others"))
 #sonstiges summe und norm
 tmp <- athl %>% filter(Jahr >= 1996) %>% group_by(Land) %>% summarize(sum = sum(count))
 tmp2 = filter(tmp, Land != "TUR" & Land != "RUS" & Land != "BLR" & Land != "UKR" & Land != "USA")
