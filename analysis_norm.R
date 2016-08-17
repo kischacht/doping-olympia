@@ -30,9 +30,9 @@ write.csv(cpc, "fälleproland.csv", row.names = F)
 
 
 #fälle nach geschlecht
-cpg <- cases %>% group_by(Geschlecht, Jahr) %>% summarize(count=length(unique(Name))) %>% filter(Jahr >= 1996) %>%
+cpg <- cases %>% group_by(Geschlecht, Jahr) %>% summarize(count=length(unique(Name))) %>%
   group_by(Geschlecht) %>% summarize(count=sum(count)) %>%arrange(-count)
-tmp <- athl %>% filter(Jahr >= 1996) %>% group_by(Geschlecht) %>% summarize(sum=sum(count))
+tmp <- athl %>% group_by(Geschlecht) %>% summarize(sum=sum(count))
   #spread(Geschlecht, count) %>% mutate(wshare = Women/(Women+Men))
 cpg <- left_join(cpg, tmp, by="Geschlecht") %>% mutate(norm = count/sum)
 write.csv(cpg, "fällenachgeschlecht.csv", row.names = F)
@@ -107,7 +107,7 @@ ggplot(cpgy, aes(x=Jahr, y=norm, fill=Geschlecht)) + scale_x_continuous(breaks =
   geom_text(position= position_dodge(width=3.5), aes(x=Jahr, label=paste0(count,"/",sum)), vjust=-0.5)
 '
 dev.off()
-write.csv("results/fälleproland-reduziert.csv",row-row.names = F)
+write.csv(x, "results/fälleproland-reduziert.csv",row.names = F)
 length(unique(cases$Name))
 sort(unique(cases$Name))
 sum(cpy$count)
